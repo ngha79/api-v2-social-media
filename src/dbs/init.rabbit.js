@@ -1,5 +1,5 @@
 const amqp = require('amqplib')
-require('process').config()
+require('dotenv').config()
 const { RABBITMQ, RABBITMQ_PORT, RABBITMQ_USERNAME, RABBITMQ_PASSWORD } =
   process.env
 const connectToRabbitMQ = async () => {
