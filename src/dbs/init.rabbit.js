@@ -1,8 +1,16 @@
 const amqp = require('amqplib')
-
+require('process').config()
+const { RABBITMQ, RABBITMQ_PORT, RABBITMQ_USERNAME, RABBITMQ_PASSWORD } =
+  process.env
 const connectToRabbitMQ = async () => {
   try {
-    const connection = await amqp.connect('amqp://guest:guest@localhost')
+    const connection = await amqp.connect({
+      port: RABBITMQ_PORT,
+      hostname: RABBITMQ,
+      username: RABBITMQ_USERNAME,
+      password: RABBITMQ_PASSWORD,
+      vhost: RABBITMQ_USERNAME,
+    })
 
     if (!connection) throw new Error('Connection not established')
 
