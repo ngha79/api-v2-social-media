@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node server.js"
   },
+  "engines": {
+    "node": ">=14.20.1"
+  },
   "dependencies": {
     "amqplib": "^0.10.3",
     "bcrypt": "^5.1.1",
