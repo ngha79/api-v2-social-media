@@ -26,7 +26,7 @@ require('./dbs/init.mongodb')
 require('./passport')
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'http://localhost:5174'],
+    origin: [process.env.URL_CLIENT],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   })
