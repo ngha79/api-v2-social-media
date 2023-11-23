@@ -24,14 +24,7 @@ app.use(express.urlencoded({ extended: true, limit: '10Mb' }))
 // init middlewares
 require('./dbs/init.mongodb')
 require('./passport')
-app.use(
-  cors({
-    origin: '*',
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    allowedHeaders: '*',
-  })
-)
+app.use(cors())
 
 app.use(useragent.express())
 const store = new MongoDBStore({
