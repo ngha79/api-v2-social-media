@@ -1,15 +1,18 @@
-const Redis = require('ioredis')
+const { createClient } = require('redis')
 require('dotenv').config()
 const { REDIS_PASSWORD, REDIS_URL, REDIS_PORT } = process.env
-const client = new Redis({
-  port: REDIS_PORT, // Redis port
-  host: REDIS_URL, // Redis host
+const client = createClient({
   username: 'default', // needs Redis >= 6
   password: REDIS_PASSWORD,
+  socket: {
+    host: REDIS_URL,
+    port: REDIS_PORT,
+  },
 })
 
-client.on('error', (err) => console.log('Redis Error: ', err))
-client.on('connect', () => console.log('Redis Connected'))
+client.on('error', (err) => {})
+client.on('connect', () => {})
+client.connect()
 
 const handleSetUserStatus = async ({ userId, status, socketId }) => {
   if (!userId) return

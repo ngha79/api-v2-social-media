@@ -26,10 +26,9 @@ require('./dbs/init.mongodb')
 require('./passport')
 app.use(
   cors({
-    origin: '*',
-    methods: '*',
-    allowedHeaders: "'Access-Control-Allow-Headers: Origin, Content-Type'",
+    origin: process.env.URL_CLIENT,
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   })
 )
 
