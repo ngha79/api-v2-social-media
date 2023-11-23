@@ -29,6 +29,7 @@ app.use(
     origin: '*',
     methods: '*',
     allowedHeaders: "'Access-Control-Allow-Headers: Origin, Content-Type'",
+    credentials: true,
   })
 )
 
