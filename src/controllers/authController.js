@@ -43,13 +43,13 @@ class AuthController {
           const tokens = await AuthService.authToken(user)
           let options = {
             maxAge: 1000 * 60 * 60,
-            httpOnly: false,
+            httpOnly: true,
             domain: req.headers.host,
             sameSite: 'none',
           }
           let optionsRefresh = {
             maxAge: 1000 * 60 * 60 * 24 * 7,
-            httpOnly: false,
+            httpOnly: true,
             domain: req.headers.host,
             sameSite: 'none',
           }
@@ -81,13 +81,13 @@ class AuthController {
           const tokens = await AuthService.authToken(req.user)
           let options = {
             maxAge: 1000 * 60 * 60,
-            httpOnly: false,
+            httpOnly: true,
             domain: req.headers.host,
             sameSite: 'none',
           }
           let optionsRefresh = {
             maxAge: 1000 * 60 * 60 * 24 * 7,
-            httpOnly: false,
+            httpOnly: true,
             domain: req.headers.host,
             sameSite: 'none',
           }
