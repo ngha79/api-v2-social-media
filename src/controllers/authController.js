@@ -45,11 +45,13 @@ class AuthController {
             maxAge: 1000 * 60 * 60,
             httpOnly: false,
             domain: req.headers.host,
+            sameSite: 'none',
           }
           let optionsRefresh = {
             maxAge: 1000 * 60 * 60 * 24 * 7,
             httpOnly: false,
             domain: req.headers.host,
+            sameSite: 'none',
           }
           console.log(req.headers)
           res.cookie('accessToken', tokens.accessToken, options)
@@ -81,11 +83,13 @@ class AuthController {
             maxAge: 1000 * 60 * 60,
             httpOnly: false,
             domain: req.headers.host,
+            sameSite: 'none',
           }
           let optionsRefresh = {
             maxAge: 1000 * 60 * 60 * 24 * 7,
             httpOnly: false,
             domain: req.headers.host,
+            sameSite: 'none',
           }
           res.cookie('accessToken', tokens.accessToken, options)
           res.cookie('refreshToken', tokens.refreshToken, optionsRefresh)
