@@ -20,11 +20,9 @@ class AuthController {
     const tokens = await AuthService.authToken(req.user)
     let options = {
       maxAge: 1000 * 60 * 60,
-      httpOnly: false,
     }
     let optionsRefresh = {
       maxAge: 1000 * 60 * 60 * 24 * 7,
-      httpOnly: false,
     }
 
     res.cookie('accessToken', tokens.accessToken, options)
@@ -45,11 +43,9 @@ class AuthController {
           const tokens = await AuthService.authToken(user)
           let options = {
             maxAge: 1000 * 60 * 60,
-            httpOnly: false,
           }
           let optionsRefresh = {
             maxAge: 1000 * 60 * 60 * 24 * 7,
-            httpOnly: false,
           }
           res.cookie('accessToken', tokens.accessToken, options)
           res.cookie('refreshToken', tokens.refreshToken, optionsRefresh)
