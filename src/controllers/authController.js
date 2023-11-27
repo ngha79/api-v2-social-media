@@ -24,7 +24,7 @@ class AuthController {
     let optionsRefresh = {
       maxAge: 1000 * 60 * 60 * 24 * 7,
     }
-
+    console.log(req.headers)
     res.cookie('accessToken', tokens.accessToken, options)
     res.cookie('refreshToken', tokens.refreshToken, optionsRefresh)
     res.redirect(URL_CLIENT)
@@ -43,10 +43,15 @@ class AuthController {
           const tokens = await AuthService.authToken(user)
           let options = {
             maxAge: 1000 * 60 * 60,
+            httpOnly: false,
+            domain: req.headers.host,
           }
           let optionsRefresh = {
             maxAge: 1000 * 60 * 60 * 24 * 7,
+            httpOnly: false,
+            domain: req.headers.host,
           }
+          console.log(req.headers)
           res.cookie('accessToken', tokens.accessToken, options)
           res.cookie('refreshToken', tokens.refreshToken, optionsRefresh)
           return res.send({ user, status: 200, message: 'Success' })
@@ -75,10 +80,12 @@ class AuthController {
           let options = {
             maxAge: 1000 * 60 * 60,
             httpOnly: false,
+            domain: req.headers.host,
           }
           let optionsRefresh = {
             maxAge: 1000 * 60 * 60 * 24 * 7,
             httpOnly: false,
+            domain: req.headers.host,
           }
           res.cookie('accessToken', tokens.accessToken, options)
           res.cookie('refreshToken', tokens.refreshToken, optionsRefresh)
