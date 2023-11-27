@@ -34,7 +34,7 @@ app.use(
 
 app.use(useragent.express())
 const store = new MongoDBStore({
-  uri: 'mongodb://127.0.0.1:27017/social-media',
+  uri: process.env.MONGODB_URL,
   collection: 'mySessions',
 })
 
@@ -71,16 +71,16 @@ require('../src/services/redis.service')
 socket(io)
 routes(app)
 
-consumerToQueueNormal(io)
-  .then((io) => {
+consumerToQueueNormal()
+  .then(() => {
     console.log('Message consumerToQueueNormal started ')
   })
   .catch((error) => {
     console.error(`Message Error: ${error.message}`)
   })
 
-consumerToQueueFailed(io)
-  .then((io) => {
+consumerToQueueFailed()
+  .then(() => {
     console.log('Message consumerToQueueFailed started ')
   })
   .catch((error) => {

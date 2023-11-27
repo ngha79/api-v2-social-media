@@ -1,16 +1,9 @@
 const amqp = require('amqplib')
 require('dotenv').config()
-const { RABBITMQ, RABBITMQ_PORT, RABBITMQ_USERNAME, RABBITMQ_PASSWORD } =
-  process.env
+const { RABBITMQ } = process.env
 const connectToRabbitMQ = async () => {
   try {
-    const connection = await amqp.connect({
-      port: RABBITMQ_PORT,
-      hostname: RABBITMQ,
-      username: RABBITMQ_USERNAME,
-      password: RABBITMQ_PASSWORD,
-      vhost: RABBITMQ_USERNAME,
-    })
+    const connection = await amqp.connect(RABBITMQ)
 
     if (!connection) throw new Error('Connection not established')
 
