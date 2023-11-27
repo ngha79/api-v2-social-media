@@ -21,13 +21,13 @@ class AuthController {
     let options = {
       maxAge: 1000 * 60 * 60,
       httpOnly: true,
-      domain: 'https://mernappsocialmediav2.onrender.com',
+      domain: 'mernappsocialmediav2.onrender.com',
       sameSite: 'none',
     }
     let optionsRefresh = {
       maxAge: 1000 * 60 * 60 * 24 * 7,
       httpOnly: true,
-      domain: 'https://mernappsocialmediav2.onrender.com',
+      domain: 'mernappsocialmediav2.onrender.com',
       sameSite: 'none',
     }
     res.cookie('accessToken', tokens.accessToken, options)
@@ -49,13 +49,13 @@ class AuthController {
           let options = {
             maxAge: 1000 * 60 * 60,
             httpOnly: true,
-            domain: 'https://mernappsocialmediav2.onrender.com',
+            domain: 'mernappsocialmediav2.onrender.com',
             sameSite: 'none',
           }
           let optionsRefresh = {
             maxAge: 1000 * 60 * 60 * 24 * 7,
             httpOnly: true,
-            domain: 'https://mernappsocialmediav2.onrender.com',
+            domain: 'mernappsocialmediav2.onrender.com',
             sameSite: 'none',
           }
           res.cookie('accessToken', tokens.accessToken, options)
@@ -86,13 +86,13 @@ class AuthController {
           let options = {
             maxAge: 1000 * 60 * 60,
             httpOnly: true,
-            domain: 'https://mernappsocialmediav2.onrender.com',
+            domain: 'mernappsocialmediav2.onrender.com',
             sameSite: 'none',
           }
           let optionsRefresh = {
             maxAge: 1000 * 60 * 60 * 24 * 7,
             httpOnly: true,
-            domain: 'https://mernappsocialmediav2.onrender.com',
+            domain: 'mernappsocialmediav2.onrender.com',
             sameSite: 'none',
           }
           res.cookie('accessToken', tokens.accessToken, options)
