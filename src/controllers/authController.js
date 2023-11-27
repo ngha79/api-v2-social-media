@@ -20,11 +20,16 @@ class AuthController {
     const tokens = await AuthService.authToken(req.user)
     let options = {
       maxAge: 1000 * 60 * 60,
+      httpOnly: true,
+      domain: req.headers.host,
+      sameSite: 'none',
     }
     let optionsRefresh = {
       maxAge: 1000 * 60 * 60 * 24 * 7,
+      httpOnly: true,
+      domain: req.headers.host,
+      sameSite: 'none',
     }
-    console.log(req.headers)
     res.cookie('accessToken', tokens.accessToken, options)
     res.cookie('refreshToken', tokens.refreshToken, optionsRefresh)
     res.redirect(URL_CLIENT)
@@ -53,7 +58,6 @@ class AuthController {
             domain: req.headers.host,
             sameSite: 'none',
           }
-          console.log(req.headers)
           res.cookie('accessToken', tokens.accessToken, options)
           res.cookie('refreshToken', tokens.refreshToken, optionsRefresh)
           return res.send({ user, status: 200, message: 'Success' })
