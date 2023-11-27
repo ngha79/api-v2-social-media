@@ -60,6 +60,7 @@ class AuthController {
           }
           res.cookie('accessToken', tokens.accessToken, options)
           res.cookie('refreshToken', tokens.refreshToken, optionsRefresh)
+          console.log(res)
           return res.send({ user, status: 200, message: 'Success' })
         })
       }
